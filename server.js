@@ -884,6 +884,10 @@ app.put('/api/orders/:id/cancel', authenticateToken, async (req, res) => {
   }
 });
 
+app.get("/", (req, res) => {
+  res.send("Wishk & Wish Backend is Running 🚀");
+});
+
 // ========================
 // Start Server
 // ========================
