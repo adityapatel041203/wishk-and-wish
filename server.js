@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import Cake from './models/cake.js';
+import Cake from './models/Cake.js';
 
 dotenv.config();
 
@@ -26,7 +26,7 @@ app.use(express.json());
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 // MongoDB Connection
-mongoose.connect('mongodb://localhost:27017/wishkandwish');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/wishkandwish');
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
